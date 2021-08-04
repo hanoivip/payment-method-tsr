@@ -24,7 +24,7 @@ class LibServiceProvider extends ServiceProvider
         ]);
         $this->app->bind("TsrPaymentMethod", TsrMethod::class);
         //$this->app->bind(IHelper::class, Helper::class);
-        //$this->app->bind(IHelper::class, HelperTestSuccess::class);
-        $this->app->bind(IHelper::class, HelperTestDelay::class);
+        $this->app->bind(IHelper::class, HelperTestSuccess::class);
+        //$this->app->bind(IHelper::class, HelperTestDelay::class);
     }
 }
