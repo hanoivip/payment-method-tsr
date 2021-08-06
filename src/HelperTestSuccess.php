@@ -10,7 +10,7 @@ class HelperTestSuccess implements IHelper
         $serial, $password, $telco, $dvalue, $mapping)
     {
         $test = array(
-            'status' => 1, 'message' => 'The dung', 'value' => 100000,
+            'status' => 1, 'message' => 'The dung', 'value' => 10000,
             'amount' => 0, 'code' => $password, 'serial' => $serial,
             'request_id' => mt_rand(10000, 50000), 'telco' => $telco);
         return json_encode($test);
@@ -20,7 +20,7 @@ class HelperTestSuccess implements IHelper
         $serial, $password, $telco, $dvalue, $mapping)
     {
         $test = array(
-            'status' => 1, 'message' => 'The dung', 'value' => 100000,
+            'status' => 1, 'message' => 'The dung', 'value' => 10000,
             'amount' => 0, 'code' => $password, 'serial' => $serial,
             'request_id' => mt_rand(10000, 50000), 'telco' => $telco);
         return json_encode($test);
