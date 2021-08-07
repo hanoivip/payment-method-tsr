@@ -43,8 +43,8 @@ class TsrMethod implements IPaymentMethod
         {
             return new TsrFailure($trans, __('hanoivip::tsr.failure.missing-params'));
         }
-        $serial = $params['cardpass'];
-        $password = $params['cardseri'];
+        $serial = $params['cardseri'];
+        $password = $params['cardpass'];
         $cardtype = $params['cardtype'];
         $dvalue = $params['dvalue'];
         //Log::debug(print_r($trans->trans_id, true));
