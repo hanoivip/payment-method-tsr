@@ -16,7 +16,7 @@ class CreateTsrTransactions extends Migration
             $table->string('password')->default('');
             $table->string('cardtype')->default('');
             $table->integer('dvalue')->default(0);
-            $table->integer('value')->default(0);
+            $table->integer('value')->default(0)->comment('This is final value');
             $table->string('result')->default('');
             //$table->integer()->default(0);
         });

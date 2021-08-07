@@ -6,8 +6,15 @@ use Hanoivip\PaymentMethodContract\IPaymentResult;
 
 class TsrResultCallback implements IPaymentResult
 {
+    /**
+     * 
+     * @var TsrCallback
+     */
     private $record;
-    
+    /**
+     * 
+     * @var TsrTransaction
+     */   
     private $trans;
     
     public function __construct($trans, $record)
@@ -40,7 +47,13 @@ class TsrResultCallback implements IPaymentResult
     {
         if ($this->isSuccess())
         {
-            return $this->record->value;
+            $value = $this->record->value;
+            if ($value != $this->trans->dvalue)
+            {
+                $penalty = config('tsr.penalty', 0);
+                $value = (100 - $penalty) * $value / 100;
+            }
+            return $value;
         }
         return 0;
     }

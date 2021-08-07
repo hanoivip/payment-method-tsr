@@ -43,7 +43,13 @@ class TsrResult implements IPaymentResult
     {
         if ($this->isSuccess())
         {
-            return $this->json['value'];
+            $value = $this->json['value'];
+            if ($value != $this->trans->dvalue)
+            {
+                $penalty = config('tsr.penalty', 0);
+                $value = (100 - $penalty) * $value / 100;
+            }
+            return $value;
         }
         return 0;
     }

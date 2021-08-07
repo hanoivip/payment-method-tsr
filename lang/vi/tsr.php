@@ -46,5 +46,6 @@ return [
         'exception' => 'Lỗi hệ thống, vui lòng thử lại',
         'invalid-trans2' => 'Lỗi hệ thống, vui lòng thử lại (2)',
         
-    ]
+    ],
+    'penalty' => 50,
 ];
