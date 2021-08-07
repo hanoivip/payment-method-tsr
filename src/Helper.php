@@ -58,7 +58,7 @@ class Helper implements IHelper
         ->exec();
         if ($response['status'] != 200)
             throw new Exception("Tsr request to service return error status:" . print_r($response, true));
-        Log::debug("Tsr dump response:" . $response['content']);
+        //Log::debug("Tsr dump response:" . $response['content']);
         return $response['content'];
     }
 }
