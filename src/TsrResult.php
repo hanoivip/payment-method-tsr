@@ -62,6 +62,7 @@ class TsrResult implements IPaymentResult
         $arr['isPending'] = $this->isPending();
         $arr['isFailure'] = $this->isFailure();
         $arr['isSuccess'] = $this->isSuccess();
+        $arr['trans'] = $this->getTransId();
         return $arr;
     }
 

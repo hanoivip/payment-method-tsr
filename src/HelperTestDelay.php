@@ -26,6 +26,7 @@ class HelperTestDelay implements IHelper
         }
         if ($delay < 3)
         {
+            Cache::put('TsrHelperTestDelay', $delay+1);
             $test = array(
                 'status' => 99, 'message' => 'The tre');
             return json_encode($test);
