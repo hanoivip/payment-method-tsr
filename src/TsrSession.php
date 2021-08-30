@@ -6,6 +6,10 @@ use Hanoivip\PaymentMethodContract\IPaymentSession;
 
 class TsrSession implements IPaymentSession
 {
+    /**
+     * 
+     * @var TsrTransaction
+     */
     private $trans;
     
     public function __construct($trans)
@@ -22,7 +26,9 @@ class TsrSession implements IPaymentSession
     }
 
     public function getData()
-    {}
+    {
+        return config('tsr.telco');
+    }
     
     public function getTransId()
     {
