@@ -72,6 +72,6 @@ class TsrResultCallback implements IPaymentResult
 
     public function getTransId()
     {
-        return $this->trans;
+        return $this->trans->trans;
     }    
 }

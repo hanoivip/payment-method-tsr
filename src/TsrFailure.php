@@ -9,7 +9,7 @@ class TsrFailure implements IPaymentResult
     private $error;
     /**
      * 
-     * @var string
+     * @var string transaction id
      */
     private $trans;
     
@@ -58,6 +58,6 @@ class TsrFailure implements IPaymentResult
 
     public function getTransId()
     {
-        return $this->trans;
+        return $this->trans->trans_id;
     }    
 }
