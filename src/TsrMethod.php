@@ -96,7 +96,7 @@ class TsrMethod implements IPaymentMethod
                     $this->config['partner_id'],
                     $this->config['partner_secret'],
                     $log->serial, $log->password, 
-                    $log->cardtype, $log->dvalue, Str::random(10));
+                    $log->cardtype, $log->dvalue, $log->mapping);
                 $log->result = $newResult;
                 $log->save();
                 return new TsrResult($log);
