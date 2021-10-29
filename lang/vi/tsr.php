@@ -15,7 +15,8 @@ return [
         317 => 'Dịch vụ gạch thẻ bảo trì, vui lòng thử lại sau',
         329 => 'Dịch vụ gạch thẻ bảo trì, vui lòng thử lại sau',
         100 => 'Sai mã thẻ',
-        102 => 'Lỗi hệ thống, liên hệ GM (requestid dup.)'
+        101 => 'Thẻ không tồn tại',
+        102 => 'Lỗi hệ thống, liên hệ GM (requestid dup)'
     ],
     'guide' => 'Sử dụng thẻ điện thoại hoặc thẻ game để thanh toán. Chú ý: Phải chọn đúng giá trị thẻ, nếu chọn sai sẽ bị trừ 50% giá trị thực.',
     'failure' => [
