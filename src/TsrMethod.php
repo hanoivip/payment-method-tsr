@@ -29,7 +29,7 @@ class TsrMethod implements IPaymentMethod
         // need to generate mapping to hide transaction
         $log = new TsrTransaction();
         $log->trans = $trans->trans_id;
-        $log->mapping = Str::random(8);
+        $log->mapping = $trans->trans_id;
         $log->save();
         return new TsrSession($trans);
     }
@@ -96,7 +96,7 @@ class TsrMethod implements IPaymentMethod
                     $this->config['partner_id'],
                     $this->config['partner_secret'],
                     $log->serial, $log->password, 
-                    $log->cardtype, $log->dvalue, $log->mapping);
+                    $log->cardtype, $log->dvalue, $log->mapping . '@' . Str::random(2));
                 $log->result = $newResult;
                 $log->save();
                 return new TsrResult($log);
