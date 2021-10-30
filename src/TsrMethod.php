@@ -26,6 +26,9 @@ class TsrMethod implements IPaymentMethod
 
     public function beginTrans($trans)
     {
+        $exists = TsrTransaction::where('trans', $trans->trans_id)->get();
+        if ($exists->isNotEmpty())
+            throw new Exception('TsrMethod transaction already exists');
         // need to generate mapping to hide transaction
         $log = new TsrTransaction();
         $log->trans = $trans->trans_id;
@@ -96,7 +99,7 @@ class TsrMethod implements IPaymentMethod
                     $this->config['partner_id'],
                     $this->config['partner_secret'],
                     $log->serial, $log->password, 
-                    $log->cardtype, $log->dvalue, $log->mapping);
+                    $log->cardtype, $log->dvalue, $log->mapping);//dm may thang ho tro con deo biet dieu nay; dat sai thi loi CARD_NOT_EXISTS
                 $log->result = $newResult;
                 $log->save();
                 return new TsrResult($log);
