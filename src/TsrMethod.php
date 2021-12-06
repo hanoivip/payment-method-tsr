@@ -95,14 +95,16 @@ class TsrMethod implements IPaymentMethod
             if (empty($cb))
             {
                 // had not received any cb, let actively check
-                $newResult = $this->helper->check(
+                $resp = $this->helper->check(
                     $this->config['partner_id'],
                     $this->config['partner_secret'],
                     $log->serial, $log->password, 
                     $log->cardtype, $log->dvalue, $log->mapping);//dm may thang ho tro con deo biet dieu nay; dat sai thi loi CARD_NOT_EXISTS
-                $log->result = $newResult;
+                $log->result = $resp;
+                $newResult = new TsrResult($log);
+                $log->value = $newResult->getAmount();
                 $log->save();
-                return new TsrResult($log);
+                return $newResult;
             }
             else
             {

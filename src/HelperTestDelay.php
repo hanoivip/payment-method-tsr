@@ -11,6 +11,7 @@ class HelperTestDelay implements IHelper
     public function charge($partnerId, $partnerSecret, 
         $serial, $password, $telco, $dvalue, $mapping)
     {
+        Cache::forget('TsrHelperTestDelay');
         $test = array(
             'status' => 99, 'message' => 'The tre');
         return json_encode($test);
