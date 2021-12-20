@@ -81,7 +81,7 @@ class TsrMethod implements IPaymentMethod
        
     }
 
-    public function query($trans)
+    public function query($trans, $force = false)
     {
         $log = TsrTransaction::where('trans', $trans->trans_id)->first();
         if (empty($log) || empty($log->result))
@@ -89,7 +89,7 @@ class TsrMethod implements IPaymentMethod
             return new TsrFailure($trans, __('hanoivip::tsr.failure.invalid-trans2'));
         }
         $result = new TsrResult($log);
-        if ($result->isPending())
+        if ($result->isPending() || $force)
         {
             $cb = TsrCallback::where('mapping', $log->mapping)->first();
             if (empty($cb))
