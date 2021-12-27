@@ -74,6 +74,7 @@ class TsrMethod implements IPaymentMethod
         } 
         catch (Exception $ex) 
         {
+            $log->result = json_encode(['status' => 999]);
             $log->save();
             Log::error('TsrMethod exception : ' . $ex->getMessage());
             return new TsrFailure($trans, __('hanoivip::tsr.failure.exception'));
