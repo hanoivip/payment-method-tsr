@@ -16,7 +16,7 @@ class TsrController extends BaseController
     
     public function callback(Request $request)
     {
-        Log::debug("TsrMethod callback dump:" . print_r($request->all(), true));
+        //Log::debug("TsrMethod callback dump:" . print_r($request->all(), true));
         $mapping = $request->get('request_id');
         $value = $request->get('value');
         $status = $request->get('status');

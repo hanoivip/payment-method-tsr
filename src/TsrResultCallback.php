@@ -25,7 +25,7 @@ class TsrResultCallback implements IPaymentResult
     
     public function getDetail()
     {
-        return __('hanoivip::tsr.messages.' . $this->record->status);
+        return __('hanoivip.tsr::tsr.messages.' . $this->record->status);
     }
 
     public function isPending()

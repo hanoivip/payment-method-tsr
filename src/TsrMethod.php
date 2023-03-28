@@ -44,7 +44,7 @@ class TsrMethod implements IPaymentMethod
             !isset($params['cardtype']) ||
             !isset($params['dvalue']))
         {
-            return new TsrFailure($trans, __('hanoivip::tsr.failure.missing-params'));
+            return new TsrFailure($trans, __('hanoivip.tsr::tsr.failure.missing-params'));
         }
         $serial = $params['cardseri'];
         $password = $params['cardpass'];
@@ -55,7 +55,7 @@ class TsrMethod implements IPaymentMethod
         $log = TsrTransaction::where('trans', $trans->trans_id)->first();
         if (empty($log))
         {
-            return new TsrFailure($trans, __('hanoivip::tsr.failure.invalid-trans'));
+            return new TsrFailure($trans, __('hanoivip.tsr::tsr.failure.invalid-trans'));
         }
         $log->serial = $serial;
         $log->password = $password;
@@ -77,7 +77,7 @@ class TsrMethod implements IPaymentMethod
             $log->result = json_encode(['status' => 999]);
             $log->save();
             Log::error('TsrMethod exception : ' . $ex->getMessage());
-            return new TsrFailure($trans, __('hanoivip::tsr.failure.exception'));
+            return new TsrFailure($trans, __('hanoivip.tsr::tsr.failure.exception'));
         }
        
     }
@@ -87,7 +87,7 @@ class TsrMethod implements IPaymentMethod
         $log = TsrTransaction::where('trans', $trans->trans_id)->first();
         if (empty($log) || empty($log->result))
         {
-            return new TsrFailure($trans, __('hanoivip::tsr.failure.invalid-trans2'));
+            return new TsrFailure($trans, __('hanoivip.tsr::tsr.failure.invalid-trans2'));
         }
         $result = new TsrResult($log);
         if ($result->isPending() || $force)

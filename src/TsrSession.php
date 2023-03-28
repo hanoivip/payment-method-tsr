@@ -22,7 +22,7 @@ class TsrSession implements IPaymentSession
 
     public function getGuide()
     {
-        return __('hanoivip::tsr.guide');
+        return __('hanoivip.tsr::tsr.guide');
     }
 
     public function getData()

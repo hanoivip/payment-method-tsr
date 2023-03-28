@@ -21,7 +21,7 @@ class TsrResult implements IPaymentResult
     
     public function getDetail()
     {
-        return __('hanoivip::tsr.messages.' . $this->json['status']);
+        return __('hanoivip.tsr::tsr.messages.' . $this->json['status']);
     }
 
     public function isPending()
