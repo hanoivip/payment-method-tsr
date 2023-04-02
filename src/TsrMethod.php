@@ -3,7 +3,6 @@
 namespace Hanoivip\PaymentMethodTsr;
 
 use Hanoivip\PaymentMethodContract\IPaymentMethod;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use Exception;
 

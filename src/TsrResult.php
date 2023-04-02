@@ -63,6 +63,7 @@ class TsrResult implements IPaymentResult
         $arr['isFailure'] = $this->isFailure();
         $arr['isSuccess'] = $this->isSuccess();
         $arr['trans'] = $this->getTransId();
+        $arr['currency'] = $this->getCurrency();
         return $arr;
     }
 
@@ -70,6 +71,12 @@ class TsrResult implements IPaymentResult
     {
         return $this->trans->trans;
     }
+    
+    public function getCurrency()
+    {
+        return 'VND';
+    }
+
 
 
     

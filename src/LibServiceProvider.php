@@ -3,6 +3,7 @@
 namespace Hanoivip\PaymentMethodTsr;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\App;
 
 class LibServiceProvider extends ServiceProvider
 {
@@ -24,8 +25,14 @@ class LibServiceProvider extends ServiceProvider
         $this->commands([
         ]);
         $this->app->bind("TsrPaymentMethod", TsrMethod::class);
-        $this->app->bind(IHelper::class, Helper::class);
-        //$this->app->bind(IHelper::class, HelperTestSuccess::class);
-        //$this->app->bind(IHelper::class, HelperTestDelay::class);
+        if (App::environment(['production']))
+        {
+            $this->app->bind(IHelper::class, Helper::class);
+        }
+        if (App::environment(['local', 'staging'])) 
+        {
+            $this->app->bind(IHelper::class, HelperTestSuccess::class);
+            //$this->app->bind(IHelper::class, HelperTestDelay::class);
+        }
     }
 }
