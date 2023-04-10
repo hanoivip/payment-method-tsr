@@ -15,6 +15,7 @@ class LibServiceProvider extends ServiceProvider
         ]);
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadTranslationsFrom( __DIR__.'/../lang', 'hanoivip.tsr');
         $this->mergeConfigFrom( __DIR__.'/../config/tsr.php', 'tsr');
         $this->loadViewsFrom(__DIR__ . '/../views', 'hanoivip');
