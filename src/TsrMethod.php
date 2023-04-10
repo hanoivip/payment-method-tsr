@@ -126,6 +126,10 @@ class TsrMethod implements IPaymentMethod
             'cardpass' => 'required',
         ]);*/
         $errors = [];
+        if (!isset($params['cardtype']))
+        {
+            $errors['cardtype'] = 'Card type must be choosen';
+        }
         if (!isset($params['cardpass'])) 
         {
             $errors['cardpass'] = 'Card password must be filled';
