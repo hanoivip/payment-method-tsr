@@ -73,5 +73,11 @@ class TsrResultCallback implements IPaymentResult
     public function getTransId()
     {
         return $this->trans->trans;
-    }    
+    }
+    
+    public function getCurrency()
+    {
+        return 'VND';
+    }
+    
 }

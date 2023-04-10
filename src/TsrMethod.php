@@ -118,5 +118,27 @@ class TsrMethod implements IPaymentMethod
     {
         //Log::debug("TsrMethod cfg " . print_r($cfg, true) );
         $this->config = $cfg;
-    }    
+    }
+    
+    public function validate($params)
+    {/*
+        return request()->validate([
+            'cardpass' => 'required',
+        ]);*/
+        $errors = [];
+        if (!isset($params['cardpass'])) 
+        {
+            $errors['cardpass'] = 'Card password must be filled';
+        }
+        if (!isset($params['cardseri']))
+        {
+            $errors['cardseri'] = 'Card serial must be filled';
+        }
+        if (!isset($params['dvalue']))
+        {
+            $errors['dvalue'] = 'Card value must be choosen';
+        }
+        return $errors;
+    }
+    
 }
