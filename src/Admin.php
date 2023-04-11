@@ -21,8 +21,10 @@ class Admin extends BaseController
         {
             $page = $request->input('page');
         }
-        $records = TsrTransaction::skip($num * $page)
-        ->take($num)->get();
+        $records = TsrTransaction::orderBy('id', 'desc')
+        ->skip($num * $page)
+        ->take($num)
+        ->get();
         $total = floor(TsrTransaction::count() / $num);
         Log::debug(TsrTransaction::count());
         return view('hanoivip::admin.tsr', ['records' => $records, 'page' => $page, 'total' => $total]);

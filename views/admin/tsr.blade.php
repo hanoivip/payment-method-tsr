@@ -12,6 +12,7 @@
 	<th>Type</th>
 	<th>User choosen</th>
 	<th>Real amount</th>
+	<th>Time</th>
 </tr>
 @foreach ($records as $record)
 <tr>
@@ -30,6 +31,9 @@
 	</td>
 	<td>
 	{{$record->value}}
+	</td>
+	<td>
+	{{$record->created_at}}
 	</td>
 </tr>
 @endforeach
