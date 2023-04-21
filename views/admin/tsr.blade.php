@@ -4,6 +4,15 @@
 
 @section('content')
 
+<style type="text/css">
+	table tr td{
+		border: 1px solid;
+	}
+	table tr th{
+		border: 1px solid;
+	}
+</style>
+
 <table>
 <tr>
 	<th>ID</th>
@@ -39,8 +48,6 @@
 @endforeach
 </table>
 
-@for ($i=0; $i<$total; ++$i)
-<a href="{{ route('ecmin.tsr', ['page' => $i]) }}">{{$i}}</a>
-@endfor
+{{ $records->links() }}
 
 @endsection
