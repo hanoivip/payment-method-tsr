@@ -15,7 +15,7 @@
 
 <table>
 <tr>
-	<th>ID</th>
+	<th>Trans</th>
 	<th>Serial</th>
 	<th>Password</th>
 	<th>Type</th>
@@ -25,8 +25,7 @@
 </tr>
 @foreach ($records as $record)
 <tr>
-	<td>
-	{{$record->mapping}}
+	<td>{{$record->trans}}
 	</td>
 	<td>{{$record->serial}}
 	</td>
