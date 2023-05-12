@@ -14,7 +14,13 @@ class Admin extends BaseController
     
     public function index(Request $request)
     {
-        $records = TsrTransaction::orderBy('id', 'desc')->paginate(50);
+        $serial = $request->input('serial');
+        $records = TsrTransaction::orderBy('id', 'desc');
+        if (!empty($serial))
+        {
+            $records = $records->where('serial', $serial);
+        }
+        $records = $records->paginate(50);
         return view('hanoivip::admin.tsr', ['records' => $records]);
     }
 }

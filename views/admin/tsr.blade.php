@@ -13,6 +13,12 @@
 	}
 </style>
 
+<form method="post" action="{{ route('ecmin.tsr') }}">
+{{ csrf_field() }}
+Find by serial: <input type="text" name="serial" id="serial" value="" />
+<button type="submit">Filter</button>
+</form>
+
 <table>
 <tr>
 	<th>Trans</th>
@@ -22,6 +28,7 @@
 	<th>User choosen</th>
 	<th>Real amount</th>
 	<th>Time</th>
+	<th>Action</th>
 </tr>
 @foreach ($records as $record)
 <tr>
@@ -42,6 +49,13 @@
 	</td>
 	<td>
 	{{$record->created_at}}
+	</td>
+	<td>
+		<form method="POST" action="{{ route('ecmin.webtopup.check') }}">
+                {{ csrf_field() }}
+            <input id="receipt" name="receipt" type="hidden" value="{{ $record->trans }}">
+            <button type="submit" class="btn btn-primary">Check</button>
+        </form>
 	</td>
 </tr>
 @endforeach

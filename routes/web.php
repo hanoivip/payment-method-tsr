@@ -9,6 +9,6 @@ Route::middleware([
 ->prefix('ecmin')
 ->group(function () {
     // Module index
-    Route::get('/tsr', 'Admin@index')->name('ecmin.tsr');
+    Route::any('/tsr', 'Admin@index')->name('ecmin.tsr');
     
 });
