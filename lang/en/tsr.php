@@ -14,7 +14,11 @@ return [
         327 => 'Payment is in maintanance. Plz try later.',
         317 => 'Payment is in maintanance. Plz try later.',
         329 => 'Payment is in maintanance. Plz try later.',
-        100 => 'Card password is wrong. Try again.'
+        100 => 'Card password is wrong. Try again.',
+        101 => 'Card is not exists. Contact the seller to check this card.',
+        102 => 'System error. Contact customer support! (requestid dup)',
+        // user defined
+        999 => 'Tsr is maintained. Plz retry later.',
     ],
     'guide' => 'Payment by telecom and/or game cards. More details: https://bombman.vn1.us/blog/card-payment-guide',
     'failure' => [
