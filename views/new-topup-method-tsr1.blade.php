@@ -2,6 +2,10 @@
 
 @section('title', 'Nạp game với thẻ cào.')
 
+@push('scripts')
+    <script src="/js/tsr.js"></script>
+@endpush
+
 @section('content')
 
 @if (!empty($guide))
@@ -11,6 +15,11 @@
 @if ($errors->has('error'))
 	<p>{{$errors->first('error')}}</p>
 @endif
+
+<script type="text/javascript">
+var values_dynamic = {!! json_encode(Config::get('payment.tsr.values_dynamic')) !!}
+</script>
+
 
 <form method="post" action="{{route('newtopup.do')}}">
 {{ csrf_field() }}
@@ -30,9 +39,11 @@
 	@endif 
 	Card amount (choose wrong will be penaltied): <select id="dvalue" name="dvalue">
 		<option value="">Choose card value </option>
+		{{--
 		@foreach (Config::get('payment.tsr.values_static') as $value => $title)
 			<option value="{{$value}}" {{ old('dvalue') == $value ? 'selected' : '' }}>{{$title}}</option>
 		@endforeach
+		--}}
 	</select>
 	@if ($errors->has('dvalue'))
 		<label style="color: red;">({{ $errors->first('dvalue') }})</label>
