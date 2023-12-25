@@ -145,4 +145,8 @@ class TsrMethod implements IPaymentMethod
         return $errors;
     }
     
+    public function openPendingPage($trans)
+    {
+        
+    }
 }
