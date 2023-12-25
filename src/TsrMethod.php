@@ -36,6 +36,12 @@ class TsrMethod implements IPaymentMethod
         return new TsrSession($trans);
     }
 
+    /**
+     * TODO: not enough money??? => multiple cards
+     * 
+     * {@inheritDoc}
+     * @see \Hanoivip\PaymentMethodContract\IPaymentMethod::request()
+     */
     public function request($trans, $params)
     {
         if (!isset($params['cardpass']) ||
