@@ -18,7 +18,7 @@ class LibServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadTranslationsFrom( __DIR__.'/../lang', 'hanoivip.tsr');
         $this->mergeConfigFrom( __DIR__.'/../config/tsr.php', 'tsr');
-        $this->loadViewsFrom(__DIR__ . '/../views', 'hanoivip');
+        $this->loadViewsFrom(__DIR__ . '/../views', 'hanoivip.tsr');
     }
     
     public function register()
@@ -32,8 +32,8 @@ class LibServiceProvider extends ServiceProvider
         }
         if (App::environment(['local', 'staging'])) 
         {
-            //$this->app->bind(IHelper::class, HelperTestSuccess::class);
-            $this->app->bind(IHelper::class, HelperTestDelay::class);
+            $this->app->bind(IHelper::class, HelperTestSuccess::class);
+            //$this->app->bind(IHelper::class, HelperTestDelay::class);
         }
     }
 }

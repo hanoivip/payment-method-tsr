@@ -51,7 +51,7 @@ Find by serial: <input type="text" name="serial" id="serial" value="" />
 	{{$record->created_at}}
 	</td>
 	<td>
-		<form method="POST" action="{{ route('ecmin.webtopup.check') }}">
+		<form method="POST" action="{{ route('ecmin.vpcard.check') }}">
                 {{ csrf_field() }}
             <input id="receipt" name="receipt" type="hidden" value="{{ $record->trans }}">
             <button type="submit" class="btn btn-primary">Check</button>

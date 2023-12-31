@@ -21,6 +21,6 @@ class Admin extends BaseController
             $records = $records->where('serial', $serial);
         }
         $records = $records->paginate(50);
-        return view('hanoivip::admin.tsr', ['records' => $records]);
+        return view('hanoivip.tsr::admin.tsr', ['records' => $records]);
     }
 }

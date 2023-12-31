@@ -153,6 +153,12 @@ class TsrMethod implements IPaymentMethod
     
     public function openPendingPage($trans)
     {
-        
+        return view('hanoivip.tsr::pending', ['trans' => $trans]);
     }
+    
+    public function openPaymentPage($transId, $guide, $session)
+    {
+        return view('hanoivip.tsr::payment', ['trans' => $transId, 'guide' => $guide]);
+    }
+
 }
