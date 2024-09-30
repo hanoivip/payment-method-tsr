@@ -9,7 +9,7 @@
 @section('content')
 
 <script type="text/javascript">
-var values_dynamic = {!! json_encode(Config::get('payment.tsr.values_dynamic')) !!}
+var values_dynamic = {!! json_encode(Config::get('tsr.values_dynamic')) !!}
 </script>
 
 <div class="container">
@@ -35,7 +35,7 @@ var values_dynamic = {!! json_encode(Config::get('payment.tsr.values_dynamic')) 
                         	<div class="col-md-6">
                             	<select id="cardtype" name="cardtype">
                             		<option value="">Choose card type</option>
-                            		@foreach (Config::get('payment.tsr.telco_static') as $cardtype => $title))
+                            		@foreach (Config::get('tsr.telco_static') as $cardtype => $title))
                             			<option value="{{$cardtype}}"  {{ old('cardtype') == $cardtype ? 'selected' : '' }}>{{$title}}</option>
                             		@endforeach 
                             	</select>
@@ -74,7 +74,7 @@ var values_dynamic = {!! json_encode(Config::get('payment.tsr.values_dynamic')) 
                             	<select id="dvalue" name="dvalue">
                             		<option value="">Choose card value</option>
                             		{{--
-                            		@foreach (Config::get('payment.tsr.values_static') as $value => $title)
+                            		@foreach (Config::get('tsr.values_static') as $value => $title)
                             			<option value="{{$value}}" {{ old('dvalue') == $value ? 'selected' : '' }}>{{$title}}</option>
                             		@endforeach
                             		--}}

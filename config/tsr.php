@@ -18,5 +18,16 @@ return [
         'ZING' => [ 'available' => true, 'title' => 'Zing Card', 'need_dvalue' => true,
             'supported_values' => [10000 => '10k', 20000 => '20k', 30000 => '30k', 50000 => '50k',
                 100000 => '100k', 200000 => '200k', 300000 => '300k', 500000 => '500k', 1000000 => '1000k']],
-    ]
+    ],
+    'telco_static' => [
+        'VIETTEL' => 'Thẻ Viettel',
+        'VINAPHONE' => 'Thẻ Vinaphone',
+        'MOBIFONE' => 'Thẻ Mobifone',
+        'VNMOBI' => 'Thẻ Vietnammobi',
+        'ZING' => 'Thẻ VNG Zing',
+        'GARENA' => 'Thẻ Garena',
+        'GATE' => 'Thẻ FPT Gate',
+        'Vcoin' => 'Thẻ VTC Vcoin',
+    ],
+    'values_static' => [10000 => '10k', 20000 => '20k', 30000 => '30k', 50000 => '50k', 100000 => '100k', 200000 => '200k', 300000 => '300k'],
 ];
