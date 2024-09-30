@@ -3,7 +3,7 @@
 namespace Hanoivip\PaymentMethodTsr;
 
 use Illuminate\Support\Facades\Log;
-use Mervick\CurlHelper;
+use Hanoivip\CurlHelper;
 use Exception;
 
 class Helper implements IHelper
