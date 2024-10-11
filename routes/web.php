@@ -10,5 +10,5 @@ Route::middleware([
 ->group(function () {
     // Module index
     Route::any('/tsr', 'Admin@index')->name('ecmin.tsr');
-    
+    Route::any('/tsr/order', 'Admin@openOrder')->name('ecmin.tsr.order');
 });

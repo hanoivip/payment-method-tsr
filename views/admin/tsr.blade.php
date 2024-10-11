@@ -28,7 +28,7 @@ Find by serial: <input type="text" name="serial" id="serial" value="" />
 	<th>User choosen</th>
 	<th>Real amount</th>
 	<th>Time</th>
-	<th>Action</th>
+	<th>Actions</th>
 </tr>
 @foreach ($records as $record)
 <tr>
@@ -51,10 +51,15 @@ Find by serial: <input type="text" name="serial" id="serial" value="" />
 	{{$record->created_at}}
 	</td>
 	<td>
-		<form method="POST" action="{{ route('ecmin.vpcard.check') }}">
+        <form method="POST" action="{{ route('ecmin.tsr.order') }}">
                 {{ csrf_field() }}
             <input id="receipt" name="receipt" type="hidden" value="{{ $record->trans }}">
-            <button type="submit" class="btn btn-primary">Check</button>
+            <button type="submit" class="btn btn-primary">Order Detail</button>
+        </form>
+        <form method="POST" action="{{ route('ecmin.vpcard.check') }}">
+                {{ csrf_field() }}
+            <input id="receipt" name="receipt" type="hidden" value="{{ $record->trans }}">
+            <button type="submit" class="btn btn-secondary">Check</button>
         </form>
 	</td>
 </tr>
